@@ -1,5 +1,5 @@
 {
-  "python-envs.defaultEnvManager": "ms-python.python:system",
-  "python-envs.defaultPackageManager": "ms-python.python:pip",
-  "python.defaultInterpreterPath": "/home/ibrahim/anaconda3/bin/python"
+  "python-envs.defaultEnvManager": "ms-python.python:poetry",
+  "python-envs.defaultPackageManager": "ms-python.python:poetry",
+  "python.defaultInterpreterPath": "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/bin/python"
 }
