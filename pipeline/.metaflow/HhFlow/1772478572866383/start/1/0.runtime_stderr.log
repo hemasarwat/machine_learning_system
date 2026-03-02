@@ -1,0 +1,55 @@
+[MFLOG|0|2026-03-02T19:09:34.054618Z|runtime|c4ccb0d2-0575-4767-8a25-22e3ddba8e3d]<flow HhFlow step start> failed:
+[MFLOG|0|2026-03-02T19:09:34.061395Z|runtime|d138904d-9370-4da2-98dd-95bf6acf7da1]    Internal error
+[MFLOG|0|2026-03-02T19:09:34.065289Z|runtime|e2214b0f-c266-4a7a-a224-065363bdb400]Traceback (most recent call last):
+[MFLOG|0|2026-03-02T19:09:34.065522Z|runtime|06e5117e-0fb1-42e8-b6fc-1e90dc726013]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/cli.py", line 727, in main
+[MFLOG|0|2026-03-02T19:09:34.065703Z|runtime|aa78411b-c44f-4bbf-be2a-49939cd3e558]    start(auto_envvar_prefix="METAFLOW", obj=state)
+[MFLOG|0|2026-03-02T19:09:34.065836Z|runtime|6ee010f0-2139-4cfe-b5f9-00632a267cbd]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/_vendor/click/core.py", line 829, in __call__
+[MFLOG|0|2026-03-02T19:09:34.065954Z|runtime|685e998a-f0e5-40d2-978a-2c369edb9af2]    return self.main(args, kwargs)
+[MFLOG|0|2026-03-02T19:09:34.066069Z|runtime|c6717178-9798-4359-81fa-ab0b61c9e9c2]           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.066185Z|runtime|7745983c-621d-4707-b94f-53f28ebf13f7]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/_vendor/click/core.py", line 782, in main
+[MFLOG|0|2026-03-02T19:09:34.066316Z|runtime|55438021-0730-4450-9acb-4f2f8e61ad5e]    rv = self.invoke(ctx)
+[MFLOG|0|2026-03-02T19:09:34.066429Z|runtime|fe2c25f4-d34a-4043-8764-a8a7a333bfa9]         ^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.066541Z|runtime|ee58a643-14ed-4135-973d-d8abf840c4cb]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/cli_components/utils.py", line 69, in invoke
+[MFLOG|0|2026-03-02T19:09:34.066678Z|runtime|776fb6d7-f2d0-4e9f-854d-0dec4842c02d]    return _process_result(sub_ctx.command.invoke(sub_ctx))
+[MFLOG|0|2026-03-02T19:09:34.066846Z|runtime|9d567eff-7670-4808-95b5-fb72d1386a6d]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.067006Z|runtime|de9cf738-a965-440a-a29d-8104ab486ce9]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/_vendor/click/core.py", line 1066, in invoke
+[MFLOG|0|2026-03-02T19:09:34.067148Z|runtime|2da66e9f-271d-4fbc-85a4-1c67db0e035e]    return ctx.invoke(self.callback, ctx.params)
+[MFLOG|0|2026-03-02T19:09:34.277224Z|runtime|2d84cf3e-5675-4a67-b919-33064542f275]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.277522Z|runtime|171e3dd5-5813-4804-b9b5-fbd2a7c14b05]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/_vendor/click/core.py", line 610, in invoke
+[MFLOG|0|2026-03-02T19:09:34.277689Z|runtime|1acff38a-5032-4080-80b3-3475a2760ccf]    return callback(args, kwargs)
+[MFLOG|0|2026-03-02T19:09:34.277792Z|runtime|4fecbbb8-d80c-4078-8bfd-fe20617f668c]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.277896Z|runtime|2460dd4c-ff85-47f3-b9cf-81f8d4859cfd]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/tracing/__init__.py", line 27, in wrapper_func
+[MFLOG|0|2026-03-02T19:09:34.278030Z|runtime|71affa45-6036-4eb9-b21c-03e8131437fd]    return func(args, kwargs)
+[MFLOG|0|2026-03-02T19:09:34.278145Z|runtime|076b22e9-4880-4f0e-ab0a-cce612791961]           ^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.278254Z|runtime|8978c7c9-f7e4-4d6b-97bc-e0e5f15b95f7]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/_vendor/click/decorators.py", line 21, in new_func
+[MFLOG|0|2026-03-02T19:09:34.278393Z|runtime|d9a5f77a-5573-41e6-90a9-97135c93621b]    return f(get_current_context(), args, kwargs)
+[MFLOG|0|2026-03-02T19:09:34.278492Z|runtime|6dc9a590-1131-4254-81f8-4a13eecc8333]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.278610Z|runtime|a890c455-77a0-4c5a-aa28-5e8abe1ff04a]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/cli_components/step_cmd.py", line 171, in step
+[MFLOG|0|2026-03-02T19:09:34.278753Z|runtime|fbc49d8b-2bae-47ec-8c53-7356938a4c0d]    task.run_step(
+[MFLOG|0|2026-03-02T19:09:34.278882Z|runtime|507a936d-a72f-4862-9653-20488f7ee8d6]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/task.py", line 899, in run_step
+[MFLOG|0|2026-03-02T19:09:34.278992Z|runtime|56700c0e-05db-491c-9981-0f51d2701d1c]    self._exec_step_function(step_func, orig_step_func)
+[MFLOG|0|2026-03-02T19:09:34.279098Z|runtime|e0c0bbf2-1e56-4d0b-894e-630d8c7f0146]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/task.py", line 147, in _exec_step_function
+[MFLOG|0|2026-03-02T19:09:34.279203Z|runtime|f7d4d667-8a79-413a-b7cb-1d598efcc9bb]    raise raised_exception
+[MFLOG|0|2026-03-02T19:09:34.279291Z|runtime|daa3046b-6de6-48fe-ba97-c3078b432a22]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/metaflow/task.py", line 113, in _exec_step_function
+[MFLOG|0|2026-03-02T19:09:34.279402Z|runtime|1fa02242-a8f4-4dce-ade7-fa16f033a43a]    step_function()
+[MFLOG|0|2026-03-02T19:09:34.279527Z|runtime|baf7bd34-5b5b-4850-bc95-046bf0a595d6]  File "/home/ibrahim/Desktop/python/Machine Learning projects/machine_learning_system/pipeline/hh.py", line 9, in start
+[MFLOG|0|2026-03-02T19:09:34.279633Z|runtime|284a6e78-b77b-4f9a-aa5b-431d250a8f81]    self.data = pd.read_csv('data/penguins.csv')
+[MFLOG|0|2026-03-02T19:09:34.279750Z|runtime|c71ec6c9-a35c-40d6-9313-6e528403b2dc]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.279860Z|runtime|7f22698a-09f6-4e2c-95b8-2c180d3f9927]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+[MFLOG|0|2026-03-02T19:09:34.279969Z|runtime|70281328-660a-4e0c-a4a1-64582598d2ec]    return _read(filepath_or_buffer, kwds)
+[MFLOG|0|2026-03-02T19:09:34.280077Z|runtime|9c9e5ff4-2fe4-4d94-89f0-c2c843b1dab5]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.280185Z|runtime|3d020278-0adc-4b97-b714-7876dfef6b5a]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+[MFLOG|0|2026-03-02T19:09:34.280298Z|runtime|79dad371-3153-4e86-8c38-96879044cd6c]    parser = TextFileReader(filepath_or_buffer, kwds)
+[MFLOG|0|2026-03-02T19:09:34.280406Z|runtime|fc870225-8b8d-45ab-9130-2a33fe3cfd27]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.280508Z|runtime|cf6ec5ab-fd23-4524-ab7a-aef582e1c3ad]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+[MFLOG|0|2026-03-02T19:09:34.280613Z|runtime|46156cb7-8d1a-4223-a0ba-a0d71f266ff3]    self._engine = self._make_engine(f, self.engine)
+[MFLOG|0|2026-03-02T19:09:34.280751Z|runtime|30462634-729e-46a5-ac25-4c206a243312]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.280893Z|runtime|aaf5604e-dcf0-4b02-999f-5ae99003310f]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+[MFLOG|0|2026-03-02T19:09:34.281039Z|runtime|36fac012-6969-487d-813e-ffec07617087]    self.handles = get_handle(
+[MFLOG|0|2026-03-02T19:09:34.281196Z|runtime|76571534-197d-4d0c-a103-603a1c07d6bf]                   ^^^^^^^^^^^
+[MFLOG|0|2026-03-02T19:09:34.281368Z|runtime|5dd8a9a9-3501-40b6-becd-289ddd2732d3]  File "/home/ibrahim/.cache/pypoetry/virtualenvs/ml-system-packages-X4cB7v8C-py3.12/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+[MFLOG|0|2026-03-02T19:09:34.281471Z|runtime|b06be80b-7279-4427-bc80-0573a0750f99]    handle = open(
+[MFLOG|0|2026-03-02T19:09:34.281560Z|runtime|642c45e5-cb47-490c-93aa-e7d105eae933]             ^^^^^
+[MFLOG|0|2026-03-02T19:09:34.281661Z|runtime|c140736d-3be9-4702-936b-fbd98ebbc2e5]FileNotFoundError: [Errno 2] No such file or directory: 'data/penguins.csv'
+[MFLOG|0|2026-03-02T19:09:34.281757Z|runtime|c7333d7b-c6f0-4c42-8e31-7658e8ac8dc7]
+[MFLOG|0|2026-03-02T19:09:34.282260Z|runtime|47b7e135-8a97-4c31-bc61-bfd986b6b4d8]Task failed.
