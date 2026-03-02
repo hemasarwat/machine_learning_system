@@ -24,7 +24,8 @@ dependencies = [
     "nbdev (>=3.0.12,<4.0.0)",
     "nbclient (>=0.10.4,<0.11.0)",
     "ipykernel (>=7.2.0,<8.0.0)",
-    "comet-ml (>=3.56.0,<4.0.0)"
+    "comet-ml (>=3.56.0,<4.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)"
 ]
 
 [tool.poetry]
