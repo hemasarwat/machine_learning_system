@@ -32,7 +32,7 @@ def _transform_data(data):
     by applying the feature engineering steps,
     will return the transformed data.
     """
-    numerical_features = make_pipeline(SimpleImputer(strategy = "median"), 
+    numerical_features = make_pipeline(SimpleImputer(strategy = "mean"), 
                                        StandardScaler())
     categorical_features = make_pipeline(SimpleImputer(strategy = "most_frequent"),
                                          OneHotEncoder(handle_unknown = "ignore"))
