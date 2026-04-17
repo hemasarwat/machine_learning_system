@@ -21,7 +21,27 @@ def preprocess_data(base_directory):
     # Load the data
     data = _read_data(base_directory)
 
+    # Transfoming Data 
+    # data = _transform_data(data)
 
+
+
+def _transform_data(data):
+    """
+    This function transforms the data
+    by applying the feature engineering steps,
+    will return the transformed data.
+    """
+    numerical_features = make_pipeline(SimpleImputer(strategy = "median"), 
+                                       StandardScaler())
+    categorical_features = make_pipeline(SimpleImputer(strategy = "most_frequent"),
+                                         OneHotEncoder(handle_unknown = "ignore"))
+    preprocessor = ColumnTransformer(transformers = [
+        ("num", numerical_features, make_column_selector(dtype_include = np.number)),
+        ("cat", categorical_features, make_column_selector(dtype_include = np.object))
+    ])
+    transformed_data = preprocessor.fit_transform(data)
+    return transformed_data
 
 
 def _read_data(base_directory):
