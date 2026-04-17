@@ -1,3 +1,7 @@
+import tarfile
+import tempfile
+
+import joblib
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -33,6 +37,7 @@ def preprocess_data(base_directory):
     y_test = target_preprocessor_pipeline.transform(y_test)
 
     _save_split_data(X_train, y_train, X_val, y_val, X_test, y_test, base_directory)
+    _save_model(base_directory, target_preprocessor_pipeline, feature_preprocessor)
 
 
 def _build_preprocessor():
@@ -51,8 +56,8 @@ def _build_preprocessor():
 
     preprocessor = ColumnTransformer(
         transformers=[
-            ("num", numerical_features, make_column_selector(dtype_include=np.number)),
-            ("cat", categorical_features, make_column_selector(dtype_include=object))
+            ("num", numerical_features, make_column_selector(dtype_include=np.number)), # type: ignore
+            ("cat", categorical_features, make_column_selector(dtype_include=object)) # type: ignore
         ]
     )
 
@@ -87,9 +92,9 @@ def _save_split_data(X_train, y_train, X_val, y_val, X_test, y_test, base_direct
     """
     Concatenate features and target and save them as CSV files.
     """
-    train_data = np.concatenate([X_train, y_train], axis=1)
-    val_data = np.concatenate([X_val, y_val], axis=1)
-    test_data = np.concatenate([X_test, y_test], axis=1)
+    train_data = np.concatenate([X_train, y_train.reshape(-1, 1)], axis=1)
+    val_data = np.concatenate([X_val, y_val.reshape(-1, 1)], axis=1)
+    test_data = np.concatenate([X_test, y_test.reshape(-1, 1)], axis=1)
 
     output_dir = Path(base_directory)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -107,3 +112,28 @@ def target_preprocessor():
         SimpleImputer(strategy="most_frequent"),
         OneHotEncoder(handle_unknown="ignore", sparse_output=False)
     )    
+
+
+def _save_model(base_directory, target_preprocessor, feature_preprocessor):
+    """
+    Save the scikit-learn pipelines transforming,
+    in the disk. This function turn it into tar.gz file
+    and save it in the output directory.
+    """
+    with tempfile.TemporaryDirectory() as temp_dir:
+        joblib.dump(target_preprocessor, Path(temp_dir) / "target_preprocessor.joblib")
+        joblib.dump(feature_preprocessor, Path(temp_dir) / "feature_preprocessor.joblib")
+
+        model_path = Path(base_directory) / "model"
+        model_path.mkdir(parents=True, exist_ok=True)
+
+        with tarfile.open(f"{(model_path / 'model.tar.gz').as_posix()}", "w:gz") as tar:
+            tar.add(Path(temp_dir) / "target.joblib", arcname="target.joblib")
+            tar.add(
+                Path(temp_dir) / "features.joblib", arcname="features.joblib",
+            )
+
+        
+                    
+                    
+        
