@@ -37,7 +37,7 @@ def preprocess_data(base_directory):
     y_test = target_preprocessor_pipeline.transform(y_test)
 
     _save_split_data(X_train, y_train, X_val, y_val, X_test, y_test, base_directory)
-    _save_model(base_directory, target_preprocessor_pipeline, feature_preprocessor)
+    _save_model(base_directory, target_preprocessor_pipeline, feature_preprocessor) # Save the preprocessing pipelines for later use.
 
 
 def _build_preprocessor():
@@ -128,11 +128,8 @@ def _save_model(base_directory, target_preprocessor, feature_preprocessor):
         model_path.mkdir(parents=True, exist_ok=True)
 
         with tarfile.open(f"{(model_path / 'model.tar.gz').as_posix()}", "w:gz") as tar:
-            tar.add(Path(temp_dir) / "target.joblib", arcname="target.joblib")
-            tar.add(
-                Path(temp_dir) / "features.joblib", arcname="features.joblib",
-            )
-
+            tar.add(Path(temp_dir) / "target_preprocessor.joblib",  arcname="target_preprocessor.joblib")
+            tar.add(Path(temp_dir) / "feature_preprocessor.joblib", arcname="feature_preprocessor.joblib")
         
                     
                     
