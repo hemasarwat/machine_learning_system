@@ -1,7 +1,7 @@
 import tarfile
 import tempfile
-
 import joblib
+
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -92,16 +92,21 @@ def _save_split_data(X_train, y_train, X_val, y_val, X_test, y_test, base_direct
     """
     Concatenate features and target and save them as CSV files.
     """
-    train_data = np.concatenate([X_train, y_train.reshape(-1, 1)], axis=1)
-    val_data = np.concatenate([X_val, y_val.reshape(-1, 1)], axis=1)
-    test_data = np.concatenate([X_test, y_test.reshape(-1, 1)], axis=1)
+    train_data = np.concatenate((X_train, y_train.reshape(-1, 1)), axis=1)
+    val_data = np.concatenate((X_val, y_val.reshape(-1, 1)), axis=1)
+    test_data = np.concatenate((X_test, y_test.reshape(-1, 1)), axis=1)
 
-    output_dir = Path(base_directory)
-    output_dir.mkdir(parents=True, exist_ok=True)
+    train_path = Path(base_directory) / "train"
+    val_path = Path(base_directory) / "val"
+    test_path = Path(base_directory) / "test"
 
-    pd.DataFrame(train_data).to_csv(output_dir / "train.csv", index=False)
-    pd.DataFrame(val_data).to_csv(output_dir / "val.csv", index=False)
-    pd.DataFrame(test_data).to_csv(output_dir / "test.csv", index=False)
+    train_path.mkdir(parents=True, exist_ok=True)
+    val_path.mkdir(parents=True, exist_ok=True)
+    test_path.mkdir(parents=True, exist_ok=True)
+
+    pd.DataFrame(train_data).to_csv(train_path / "train.csv", index=False)
+    pd.DataFrame(val_data).to_csv(val_path / "val.csv", index=False)
+    pd.DataFrame(test_data).to_csv(test_path / "test.csv", index=False)
 
 
 def target_preprocessor():
