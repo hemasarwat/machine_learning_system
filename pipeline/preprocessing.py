@@ -118,7 +118,12 @@ def target_preprocessor():
         OneHotEncoder(handle_unknown="ignore", sparse_output=False)
     )    
 
-
+"""
+When the user sends a raw data in the pipeline, we will apply the global statistics
+to preprocess the data. and then we will need to save the global stats in tar.gz file, so we can use it later
+so this is why we will need to save the golbal stats we used in the preprocessing step,
+so we can use it later when we need to preprocess new data or when we need to deploy the model.
+"""
 def _save_model(base_directory, target_preprocessor, feature_preprocessor):
     """
     Save the scikit-learn pipelines transforming,
