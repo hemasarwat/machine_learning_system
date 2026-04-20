@@ -12,6 +12,12 @@ from sklearn.pipeline import make_pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 
+"""
+This module contains functions for data preprocessing,
+including reading raw data, splitting it into train/val/test sets, 
+applying transformations to features and target variable, 
+and saving the processed data and preprocessing pipelines for later use.
+"""
 
 def preprocess_data(base_directory):
     """
