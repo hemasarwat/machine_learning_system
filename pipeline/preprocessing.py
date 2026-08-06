@@ -81,7 +81,9 @@ def _read_data(base_directory):
 
     dataframes = [pd.read_csv(file) for file in files]
     data = pd.concat(dataframes, ignore_index=True)
-    return data
+
+    # shuffle the data
+    return data.sample(frac=1, random_state=42).reset_index(drop=True)
 
 
 def _split_data(data):
