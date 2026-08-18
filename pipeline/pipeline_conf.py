@@ -6,3 +6,6 @@ in this we will use a parameter to specify the location of the data we want to p
 from sagemaker.workflow.parameters import ParameterString  # type: ignore[import]
 from sagemaker.workflow.pipeline_definition_config import PipelineDefinitionConfig  # type: ignore[import]
 
+pipeline_definition_config = PipelineDefinitionConfig( use_custom_job_prefix = True)
+dataset_location = ParameterString(name = "dataset_location",
+                                   default_value = "s3: // ml-system-bucket/input/")
